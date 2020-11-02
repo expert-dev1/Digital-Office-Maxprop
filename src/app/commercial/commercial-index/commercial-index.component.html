@@ -1,0 +1,21 @@
+<h2  class="commercial-heading" ><i class="fas fa-city" ></i> Commercial Listings</h2>
+<formio-grid src="https://whitefang-digitaloffice.form.io/commercial1" (rowSelect)="onSelect($event)" [query]="{sort:'-created'}" [createText]="'New Listing'"
+(createItem)="onCreateItem()"></formio-grid>
+<hr  class="hr-row" />
+<div class="accordion" id="accordionExample">
+  <div class="card commercial-card ">
+    <div class="card-header" id="headingOne" >
+      <h2 class="mb-0">
+        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+          <i class="fas fa-clock" ></i> Archived Listings
+        </button>
+      </h2>
+    </div>
+
+    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+      <div class="card-body">
+        <formio-grid src="https://whitefang-digitaloffice.form.io/commercial1" [query]="{sort:'-created'}" (rowSelect)="onSelect($event)"></formio-grid>
+              </div>
+    </div>
+  </div>
+</div>

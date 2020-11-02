@@ -1,0 +1,5 @@
+<h2 class="residential-index"><i class="fas fa-home"></i> Residential Listings</h2>
+<formio-grid src="https://whitefang-digitaloffice.form.io/residentials1" (rowSelect)="onSelect($event)" [query]="{sort:'-created',skip: 10}" [createText]="'New Listing'"
+(createItem)="onCreateItem()"></formio-grid>
+<hr class="residential-index-hr" />
+
