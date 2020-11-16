@@ -4,8 +4,12 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AgGridAngular } from 'ag-grid-angular';
 import { Router } from '@angular/router';
 import { GridOptions, IDatasource, IGetRowsParams } from 'ag-grid-community';
+
+
+import 'ag-grid-enterprise';
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-alpine-dark.css';
+
 
 @Component({
   selector: 'app-residential-index',
@@ -30,8 +34,12 @@ export class ResidentialIndexComponent implements OnInit {
     { headerName: 'Code', width: 120, field: 'code' }
   ];
 
-  public rowData: any;
+
+  rowData: any;
+  
+
   constructor(private http: HttpClient, private router: Router) {
+
   }
 
   gridOptions: {
@@ -44,16 +52,10 @@ export class ResidentialIndexComponent implements OnInit {
     // other options
 }
 
-
 onRowClicked(event) {
     this.router.navigate([`/residential/${event.data.id}/view`]);
   }
 
-   titleCaseWord(word: string) {
-    if (!word) return word;
-    return word[0].toUpperCase() + word.substr(1).toLowerCase();
-  }
-    
   newListing(){
     this.router.navigate([`/residential/new`]);
   }
@@ -67,7 +69,7 @@ onRowClicked(event) {
         res.forEach(element => {
           return this.data.push({
             "address": element.data.address.formatted_address,
-            "listingType": this.titleCaseWord(element.data.listingType) ,
+            "listingType": element.data.listingType,
             "propertyType": element.data.propertyType.data.label,
             "primaryProperty": element.data.user.data?element.data.user.data.firstName+" "+element.data.user.data.lastName:'',
             "price": element.data.price,
@@ -81,6 +83,7 @@ onRowClicked(event) {
         this.rowData = this.data;
       })
   }
+
 
 }
 
