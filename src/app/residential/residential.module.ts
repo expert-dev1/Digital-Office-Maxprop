@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormioModule } from 'angular-formio';
+
 import {
   FormioResource,
   FormioResourceConfig,
@@ -12,6 +13,9 @@ import {
   FormioResourceEditComponent,
   FormioResourceDeleteComponent
 } from 'angular-formio/resource';
+import { HttpClientModule } from '@angular/common/http';
+import { AgGridModule } from 'ag-grid-angular';
+
 import { FormioGrid } from 'angular-formio/grid';
 import { ResidentialResourceComponent } from './residential-resource/residential-resource.component';
 import { ViewComponent } from './view/view.component';
@@ -26,6 +30,8 @@ import { ResidentialIndexComponent } from './residential-index/residential-index
     FormioModule,
     FormioGrid,
     FormioResource,
+    HttpClientModule,
+    AgGridModule.withComponents([]),
     RouterModule.forChild([
       {
         path: '',

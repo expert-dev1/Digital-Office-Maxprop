@@ -1,5 +1,17 @@
 <h2 class="residential-index"><i class="fas fa-home"></i> Residential Listings</h2>
-<formio-grid src="https://whitefang-digitaloffice.form.io/residentials1" (rowSelect)="onSelect($event)" [query]="{sort:'-created',skip: 10}" [createText]="'New Listing'"
-(createItem)="onCreateItem()"></formio-grid>
+<ag-grid-angular
+    #myGrid
+    style="height: 346px;"
+    class="ag-theme-balham"
+    [rowData]="rowData"
+    [columnDefs]="columnDefs"
+    [gridOptions]="gridOptions"
+    [pagination]=true
+    [paginationPageSize]="10"
+    (rowClicked)="onRowClicked($event)"
+>
+</ag-grid-angular>
+
+<button class="btn btn-primary pull-left float-left" (click) = "newListing()"><i class="glyphicon glyphicon-plus fa fa-plus"></i> New Listing</button>
 <hr class="residential-index-hr" />
 
