@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AgGridAngular } from 'ag-grid-angular';
 import { Router } from '@angular/router';
 import { GridOptions, IDatasource, IGetRowsParams } from 'ag-grid-community';
+import { Location } from '@angular/common';
 
 
 import 'ag-grid-enterprise';
@@ -38,7 +39,7 @@ export class ResidentialIndexComponent implements OnInit {
   rowData: any;
   
 
-  constructor(private http: HttpClient, private router: Router) {
+  constructor(private http: HttpClient, private router: Router,private loc: Location) {
 
   }
 
@@ -53,7 +54,8 @@ export class ResidentialIndexComponent implements OnInit {
 }
 
 onRowClicked(event) {
-    this.router.navigate([`/residential/${event.data.id}/view`]);
+  const url = window.location.href;
+  window.open(`${url}/${event.data.id}/view`, '_blank');
   }
 
   newListing(){
