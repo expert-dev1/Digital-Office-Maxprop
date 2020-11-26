@@ -2,6 +2,17 @@
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
 @import '~@angular/material/theming';
+// AG- grid
+@import "~ag-grid-community/dist/styles/ag-grid.css";
+@import "~ag-grid-community/dist/styles/ag-theme-balham.css";
+
+.ag-header.ag-focus-managed.ag-pivot-off {
+    background: #000;
+}
+
+.ag-header.ag-focus-managed.ag-pivot-off span {
+    color: #fff;
+}
 // Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
